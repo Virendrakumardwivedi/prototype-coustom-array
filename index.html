@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Prototype Array</h1>
+</body>
+</html>
+<script>
+
+    let arr = new myArray(1,2,3,4,5,6,);
+    
+    //console.log(arr)
+
+
+    function myArray(){
+        Object.defineProperty(this, "length",{
+               value:0,
+               writable:true,
+               enumerable:true,
+        });
+        this.length = arguments.length;
+
+
+         for(let i=0; i<this.length; i++){
+             this[i] = arguments[i];
+        // this.length = arguments.length;
+     
+         }
+    }
+    let arr1 = new myArray(1,2,3,4,5,6,);
+    
+   
+    myArray.prototype.push= function (value){
+        let index = this.length;
+        this[index]=value;
+        this.length++;
+    };
+
+    myArray.prototype.pop = function() {
+        let index = this.length-1;
+        delete this[index]
+        this.length--;
+    };
+    myArray.prototype.Reverse = function(){
+        let index = this.length;
+    }
+
+    arr1.push("X");
+    arr1.push(0);
+    arr1.pop();
+    arr1.pop();
+    arr1.pop();
+    arr1.Reverse(arr1)
+    console.log("arr1",(arr1));
+</script>
